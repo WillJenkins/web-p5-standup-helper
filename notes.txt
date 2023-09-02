@@ -1,1 +1,58 @@
 A nice orange: #FA6711
+
+Features needed:
+- accept list of participants
+- generate random order
+- be able to add people at end of list like manager
+- be able to create parking lot item
+- - should be able to click "parking lot" and it adds the current person's name to the PL
+- button to move person to bottom (for late ppl)
+
+Idea for features
+- only show the current person and next person up?
+- - this way you know when you're next but otherwise need to pay attention. I think this might help keep people engadged.
+- Could do a lottery type thing where it shuffles through names and slows to a stop on one? 
+
+
+First page:
+text area for list of ppl
+text area for list of ppl to go last
+text area for parking lots (you'll be able to add more afterward)
+click generate game
+the page changes to a different layout
+
+Second Page;
+There's a bunch of names in boxes at the top in randomized order,
+then there's a button to select next person
+there's also an area for PL items, they can be presented as a 
+list of boxed in text items
+text field at the bottom to add PL items 
+
+when you click next person, the game shuffles the names around
+a random number of times and picks a person
+The order of names is randomized at the beginning but stays the same order. But the game randomly shuffles to pick next person. This might help keep people paying attention but the "game" aspect might help reduce stress of not knowing when you go next? 
+
+
+IDEAS:
+The comp that displays who is up and who is up next should have a semi transparency to it so that as new names rotate up to the main view it leaves a streak of light.
+In general - just play around with transparency.
+Cards on the screen should have a diff color than background? 
+
+I don't think we can have text input in the way that I was hoping for...
+Might have to reconsider how we do this...
+
+Deciding to ditch p5js so we can have a vanilla js/html canvas
+This way we can add multiple canvases and share the screen with buttons and text areas
+
+
+CSS example:
+p {
+  color: #FF5A5A;
+  text-shadow: 0px 0px 8px #FF0000;
+}
+
+html {
+  background: #000010;
+  font-family: consolas;
+  font-size: 40px;
+}
