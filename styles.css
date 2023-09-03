@@ -1,10 +1,44 @@
 body {
-    margin: 0;
+    margin: 20px;
     padding: 0;
-    background-color: rgba(0, 0, 16, 0.05);
+    background-color: rgba(0, 0, 16, 1);
+    color: #FF5A5A;
+    font-family: Consolas;
 }
 
 #cw {
     position: fixed;
     z-index: -1;
+}
+
+label, textarea {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+textarea {
+    padding: 10px;
+    display: block;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 0px;
+    border: 2px solid #25FFFF;
+    box-shadow: 0px 0px 16px #25FFFF;
+    background-color: #0A0A1F;
+    /* background-color: rgba(10, 10, 24, 0); */
+    color:#FF5A5A;
+}
+
+label {
+    display: block;
+    margin-bottom: 11px;
+    margin-top: 20px;
+}
+
+#gameplay-screen {
+    display: none;
+}
+
+#error {
+    display: none;
 }
