@@ -1,10 +1,91 @@
+:root {
+    --main-text-color: #FF5A5A;
+    --main-text-shadow: #FF0000;
+    --background-color-rgba: rgba(10, 10, 36, 1);
+    --textarea-placeholder: #805A5A;
+    --textarea-placeholder-shadow: #705A5A;
+    --main-card-background-solid: #0A0A1F;
+    --main-text-size: 20px;
+    --accent-color: #25ffff;
+    --button-hover-bg-color: #ff3030;
+    --button-hover-shadow-color: #ff6060;
+}
+
 body {
-    margin: 0;
+    margin: auto;
     padding: 0;
-    background-color: rgba(0, 0, 16, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-rgba);
+    color: var(--main-text-color);
+    text-shadow: 0px 0px 8px var(--main-text-shadow);
+    font-family: Consolas;
+    font-size: var(--main-text-size);
 }
 
 #cw {
     position: fixed;
     z-index: -1;
+}
+
+label, textarea {
+    font-size: var(--main-text-size);
+    letter-spacing: 1px;
+}
+
+textarea {
+    padding: 10px;
+    display: block;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 3px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0px 0px 16px var(--accent-color);
+    background-color: var(--main-card-background-solid);
+    /* background-color: rgba(10, 10, 24, 0); */
+    color:var(--main-text-color);
+    text-shadow: 0px 0px 8px var(--main-text-shadow);
+}
+
+textarea::placeholder {
+    color: var(--textarea-placeholder);
+    text-shadow: var(--textarea-placeholder-shadow);
+}
+
+button {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--main-text-color);
+    padding: 5px 12px;
+    font-family: Consolas;
+    color: var(--main-text-color);
+    text-shadow: 0px 0px 6px var(--main-text-shadow);
+    font-size: 1.2rem;
+    background-color: var(--main-card-background-solid);
+    box-shadow: 0px 0px 16px var(--main-text-shadow);
+    border-radius: 3px;
+    
+    transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+    box-shadow: 0px 0px 20px var(--button-hover-shadow-color);
+}
+
+#btn-start {
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 11px;
+    margin-top: 20px;
+}
+
+#gameplay-screen {
+    display: none;
 }
