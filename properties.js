@@ -1,11 +1,14 @@
 class Properties {
     // colors
-    mainTextColor = color(255, 90, 90);
-    mainTextShadowColor = color(255, 0 ,0);
+    mainTextColor = "rgb(255, 90, 90)";
+    mainTextShadowColor = "rgb(255, 0 ,0)";
 
-    globalBackgroundColor = color(0, 0, 16);
+    globalBackgroundColor = "rgba(0, 0, 16, 0.2)";
 
     // text props
-    textMainFont = "consolas";
+    textMainFont = "Consolas";
     textHeaderSize = 40;
+
+    // animation
+    playerSpeedModifier = 0.5;
 }

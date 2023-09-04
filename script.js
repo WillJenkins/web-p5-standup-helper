@@ -1,4 +1,5 @@
-
+const canvas = document.getElementById("main-canvas");
+const context = canvas.getContext("2d");
 
 formatTextAreaPlaceholders();
 
@@ -9,11 +10,14 @@ let finalBossesInputElement = document.getElementById("ta-bosses");
 let playerForm = document.getElementById("player-form");
 
 let players = new Players();
+let game;
 
 playerForm.addEventListener("submit", (event) => {
     event.preventDefault();
     startGame();
 })
+
+
 
 function startGame() {
     players.loadPlayersFromText(
@@ -26,15 +30,33 @@ function startGame() {
     players.randomizePlayers();
     startScreenElement.style.display = "none";
     gameplayScreenElement.style.display = "block";
-    displayNames();
-    
+    //displayNames();
+    game = new Game(
+        players.getPlayers(),
+        innerWidth,
+        innerHeight / 2
+        );
+    game.beginGame();
+    animate();
 }
 
+addEventListener("resize", () => {
+    //if game, call resize
+    if (game) {
+        game.setSize(innerWidth, innerHeight / 2);
+    }
+})
+
 function displayNames() {
-    document.getElementById("test-result").textContent = players.getAllPlayers();
+    //document.getElementById("test-result").textContent = players.getAllPlayers();
 }
 
 function showStartScreen() {
     startScreenElement.style.display = "block";
     gameplayScreenElement.style.display = "none";
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    game.drawFrame();
 }
