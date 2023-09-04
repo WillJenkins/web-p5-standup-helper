@@ -30,26 +30,39 @@ function startGame() {
     players.randomizePlayers();
     startScreenElement.style.display = "none";
     gameplayScreenElement.style.display = "block";
-    //displayNames();
     game = new Game(
         players.getPlayers(),
-        innerWidth,
-        innerHeight / 2
+        players.getFinalBosses(),
+        canvas
         );
     game.beginGame();
     animate();
 }
 
+function nextPlayer() {
+    game.selectCurrentPlayers();
+}
+
+function sendPlayerBack() {
+    game.sendPlayerBack();
+}
+
+function addParkingLot() {
+    if(!game.getPlayers()) {
+        return;
+    }
+    if (document.getElementById("ta-parking-lots").value == "") {
+        document.getElementById("ta-parking-lots").value += game.getCurrentPlayerName() + " - ";
+    } else {
+        document.getElementById("ta-parking-lots").value += "\n" +game.getCurrentPlayerName() + " - ";
+    }
+}
+
 addEventListener("resize", () => {
-    //if game, call resize
     if (game) {
-        game.setSize(innerWidth, innerHeight / 2);
+        game.setSize();
     }
 })
-
-function displayNames() {
-    //document.getElementById("test-result").textContent = players.getAllPlayers();
-}
 
 function showStartScreen() {
     startScreenElement.style.display = "block";
