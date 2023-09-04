@@ -20,15 +20,18 @@
         </div>
     </div>
     <div id="gameplay-screen">
-        <div id="test">
-            <p id="test-result">test players did not load</p>
+        <div>
+            <p>Standup</p>
         </div>
         <canvas id="main-canvas"></canvas>
         <button onclick="showStartScreen()">reset</button>
+        <button onclick="nextPlayer()">Next Player</button>
+        <button onclick="sendPlayerBack()">Send Back</button>
+        <button onclick="addParkingLot()">+PL</button>
     </div>
     <div id="parking-lot">
         <label for="ta-parking-lots">Parking Lot Items</label>
-        <textarea id="ta-parking-lots" name="ta-parking-lots" rows="8" cols="30" placeholder="Ada - deployment rediness\nGrace - DB maint."></textarea>
+        <textarea id="ta-parking-lots" name="ta-parking-lots" rows="8" cols="30" placeholder="Ada - deployment readiness\nGrace - DB maint."></textarea>
     </div>
     <script src="util.js"></script>
     <script src="properties.js"></script>

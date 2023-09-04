@@ -20,6 +20,10 @@ class Players {
         this.finalBosses = [];
     }
 
+    getFinalBosses() {
+        return this.finalBosses;
+    }
+
     randomizePlayers() {
         this.players.sort((a,b) => 0.5 - Math.random());
     }
