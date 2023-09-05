@@ -21,7 +21,8 @@ body {
     background-color: var(--background-color-rgba);
     color: var(--main-text-color);
     text-shadow: 0px 0px 8px var(--main-text-shadow);
-    font-family: Consolas;
+    font-family: Courier New;
+    font-weight: bold;
     font-size: var(--main-text-size);
 }
 
@@ -60,7 +61,8 @@ button {
     border-width: 2px;
     border-color: var(--main-text-color);
     padding: 5px 12px;
-    font-family: Consolas;
+    font-family: Courier New;
+    font-weight: bold;
     color: var(--main-text-color);
     text-shadow: 0px 0px 6px var(--main-text-shadow);
     font-size: 1.2rem;

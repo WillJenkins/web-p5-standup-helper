@@ -16,15 +16,15 @@ class Player {
     constructor(name, x, y, props, playerCanvas) {
         this.props = props;
         this.name = name;
+        this.canvas = playerCanvas;
         this.x = x;
         this.y = y;
+        this.setRandomPosition();
         this.color = this.props.mainTextColor;
         this.shadowColor = this.props.mainTextShadowColor;
         this.blur = this.props.mainTextBlur;
         this.font = this.props.textPlayer;
-        this.canvas = playerCanvas;
-        this.speedX = Math.random() * props.playerSpeedModifier;
-        this.speedY = Math.random() * props.playerSpeedModifier;
+        this.setRandomSpeeds();
         this.isCurrentPlayer = false;
         this.isNextPlayer = false;
     }
@@ -40,8 +40,7 @@ class Player {
         this.blur = this.props.mainTextBlur;
         this.shadowColor = this.props.mainTextShadowColor;
         this.font = this.props.textPlayer;
-        this.speedX = Math.random() * this.props.playerSpeedModifier;
-        this.speedY = Math.random() * this.props.playerSpeedModifier;
+        this.setRandomSpeeds();
         this.isCurrentPlayer = false;
         this.isNextPlayer = false;
     }
@@ -88,13 +87,13 @@ class Player {
 
     drawText() {
         context.textAlign = "center";
-        context.fillStyle = this.shadowColor;
+        context.strokeStyle = this.shadowColor;
         context.font = this.font;
         context.filter = this.blur;
-        context.fillText(this.name, this.x, this.y);
-        context.fillStyle = this.color;
+        context.strokeText(this.name, this.x, this.y);
+        context.strokeStyle = this.color;
         context.filter = "blur(0px)";
-        context.fillText(this.name, this.x, this.y);
+        context.strokeText(this.name, this.x, this.y);
     }
 
     calculatePosition() {
@@ -119,5 +118,15 @@ class Player {
                 this.x = this.canvas.width / 2;
                 this.y = this.canvas.height / 2;
         }
+    }
+
+    setRandomSpeeds() {
+        this.speedX = (Math.random() - 0.5) * this.props.playerSpeedModifier;
+        this.speedY = (Math.random() - 0.5) * this.props.playerSpeedModifier;
+    }
+
+    setRandomPosition() {
+        this.x = this.canvas.width * Math.random();
+        this.y = ((this.canvas.height * 0.6) * Math.random()) + this.canvas.height * 0.4;
     }
 }

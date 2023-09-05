@@ -64,9 +64,9 @@ class Game {
         if (this.nextPlayer) {
             this.currentPlayer = this.nextPlayer;
         } else {
-            this.currentPlayer = this.players.pop();
+            this.currentPlayer = this.players.shift();
         }
-        this.nextPlayer = this.players.pop();
+        this.nextPlayer = this.players.shift();
         this.preparePlayers();
     }
 
@@ -86,7 +86,7 @@ class Game {
 
     sendPlayerBack() {
         this.currentPlayer.resetPlayer();
-        this.players.unshift(this.currentPlayer);
+        this.players.push(this.currentPlayer);
         this.selectCurrentPlayers();
     }
 
