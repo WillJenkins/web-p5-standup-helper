@@ -11,6 +11,7 @@ let playerForm = document.getElementById("player-form");
 
 let players = new Players();
 let game;
+let resetReady = false;
 
 playerForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -28,8 +29,7 @@ function startGame() {
         return;
     }
     players.randomizePlayers();
-    startScreenElement.style.display = "none";
-    gameplayScreenElement.style.display = "block";
+    showGameScreen();
     game = new Game(
         players.getPlayers(),
         players.getFinalBosses(),
@@ -64,9 +64,25 @@ addEventListener("resize", () => {
     }
 })
 
+function resetGame() {
+    if (resetReady) {
+        showStartScreen();
+    } else {
+        resetReady = true;
+        document.getElementById("reset-button").innerText = "Confirm";
+    }
+}
+
 function showStartScreen() {
     startScreenElement.style.display = "block";
     gameplayScreenElement.style.display = "none";
+}
+
+function showGameScreen() {
+    resetReady = false;
+    document.getElementById("reset-button").innerText = "Reset";
+    startScreenElement.style.display = "none";
+    gameplayScreenElement.style.display = "block";
 }
 
 function animate() {

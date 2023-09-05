@@ -17,10 +17,10 @@ class Properties {
     // text props
     textMainFont = "Consolas";
     textHeaderSize = 40;
-    textPlayer = "30px Consolas";
-    textCurrentPlayer = "50px Consolas";
-    textNextPlayer = "30px Consolas";
+    textPlayer = "30px Courier New";
+    textCurrentPlayer = "50px Courier New";
+    textNextPlayer = "30px Courier New";
 
     // animation
-    playerSpeedModifier = 0.5;
+    playerSpeedModifier = 0.15;
 }
