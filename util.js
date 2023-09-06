@@ -18,3 +18,12 @@ function formatTextAreaPlaceholders() {
         e.placeholder = e.placeholder.replace(/\\n/g, '\n');
     });
 }
+
+function generateColor() {
+    let hexSet = "0123456789ABCDEF";
+    let finalHexString = "#";
+    for (let i = 0; i < 6; i++) {
+        finalHexString += hexSet[Math.ceil(Math.random() * 15)];
+    }
+    return finalHexString;
+}

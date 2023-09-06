@@ -20,8 +20,8 @@ class Player {
         this.x = x;
         this.y = y;
         this.setRandomPosition();
-        this.color = this.props.mainTextColor;
-        this.shadowColor = this.props.mainTextShadowColor;
+        this.color = generateColor();
+        this.shadowColor = this.props.playerShadowColor;
         this.blur = this.props.mainTextBlur;
         this.font = this.props.textPlayer;
         this.setRandomSpeeds();
@@ -33,9 +33,14 @@ class Player {
         return this.name;
     }
 
+    getHeight() {
+        // lower number = higher on screen
+        return this.y;
+    }
+
     resetPlayer() {
         this.x = this.canvas.width / 2;
-        this.y = this.canvas.height / 2;
+        this.y = this.canvas.height - 20; // near bottom
         this.color = this.props.mainTextColor;
         this.blur = this.props.mainTextBlur;
         this.shadowColor = this.props.mainTextShadowColor;
@@ -66,8 +71,8 @@ class Player {
 
     setIsNextPlayer() {
         this.font = this.props.textNextPlayer;
-        this.color = this.props.sidekickTextColor;
-        this.shadowColor = this.props.sidekickShadowColor;
+        //this.color = this.props.sidekickTextColor;
+        //this.shadowColor = this.props.sidekickShadowColor;
         this.blur = this.props.sidekickTextBlur;
         this.isCurrentPlayer = false;
         this.isNextPlayer = true;

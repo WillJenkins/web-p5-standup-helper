@@ -10,16 +10,17 @@ class Properties {
     sidekickShadowColor = "rgb(150, 10, 10)";
     sidekickTextBlur = "blur(8px)";
     accent = "rgb(50,255,255)"
+    playerShadowColor = "rgb(50, 0, 130)"
 
     // world
-    globalBackgroundColor = "rgba(0, 0, 0, 0.2)";
+    globalBackgroundColor = "rgba(0, 0, 24, 0.2)";
 
     // text props
     textMainFont = "Consolas";
     textHeaderSize = 40;
     textPlayer = "30px Courier New";
     textCurrentPlayer = "50px Courier New";
-    textNextPlayer = "30px Courier New";
+    textNextPlayer = "25px Courier New";
 
     // animation
     playerSpeedModifier = 0.15;
