@@ -14,7 +14,6 @@ class Game {
         this.mainContext = mainCanvas.getContext("2d");
         this.playersNames = playersNames;
         this.finalBossesNames = finalBossesNames;
-        console.log("got here" + this.playersNames);
         this.setSize();
         this.players = [];
         this.props = new Properties();
@@ -38,7 +37,7 @@ class Game {
 
     beginGame() {
         this.initPlayers();
-        this.selectCurrentPlayers();
+        this.selectStartingPlayers();
         //this.animate();
     };
 
@@ -52,7 +51,6 @@ class Game {
                 this.mainCanvas
                 )
             )
-            console.log("Players: " + this.players);
         });
     };
 
@@ -60,7 +58,7 @@ class Game {
         return this.players;
     };
 
-    selectCurrentPlayers() {
+    selectStartingPlayers() {
         if (this.nextPlayer) {
             this.currentPlayer = this.nextPlayer;
         } else {
@@ -68,6 +66,34 @@ class Game {
         }
         this.nextPlayer = this.players.shift();
         this.preparePlayers();
+    }
+
+    selectCurrentPlayers() {
+        if (this.nextPlayer) {
+            this.currentPlayer = this.nextPlayer;
+        } else {
+            this.currentPlayer = this.getAndRemovePlayer(this.getHighestPlayer());
+        }
+        this.nextPlayer = this.getAndRemovePlayer(this.getHighestPlayer());
+        this.preparePlayers();
+    }
+
+    getHighestPlayer() {
+        let highest = this.players[0];
+        this.players.forEach(p => {
+            if (highest.getHeight() > p.getHeight()) {
+                highest = p;
+            }
+        });
+        return highest;
+    }
+
+    getAndRemovePlayer(player) {
+        let index = this.players.indexOf(player);
+        if (index != -1) {
+             return this.players.splice(index, 1)[0];
+        }
+        return null;
     }
 
     preparePlayers() {
