@@ -21,7 +21,7 @@ class Player {
         this.y = y;
         this.setRandomPosition();
         this.color = generateColor();
-        this.shadowColor = this.props.playerShadowColor;
+        this.shadowColor = this.color;
         this.blur = this.props.mainTextBlur;
         this.font = this.props.textPlayer;
         this.setRandomSpeeds();
