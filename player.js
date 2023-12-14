@@ -110,15 +110,17 @@ class Player {
         }
         this.x += this.speedX;
         this.y += this.speedY;
-        this.bringMeHome();
+        if (!this.isCurrentPlayer && !this.isNextPlayer) {
+            this.bringMeHome();
+        }
     }
 
     bringMeHome() {
         if (
             this.x > this.canvas.width + 2
             || this.x < -2
-            || this.y > this.canvas.height + 2
-            || this.y < -2
+            || this.y > this.canvas.height  + 2
+            || this.y < this.canvas.height * 0.3999
             ) {
                 this.x = this.canvas.width / 2;
                 this.y = this.canvas.height / 2;
