@@ -61,6 +61,7 @@ function addParkingLot() {
 addEventListener("resize", () => {
     if (game) {
         game.setSize();
+        game.preparePlayers();
     }
 })
 
