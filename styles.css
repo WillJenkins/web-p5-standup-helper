@@ -1,14 +1,14 @@
 :root {
-    --main-text-color: #FF5A5A;
-    --main-text-shadow: #FF0000;
+    --main-text-color: #efc63c;
+    --main-text-shadow: #efc63c;
     --background-color-rgba: rgba(10, 10, 36, 1);
     --textarea-placeholder: #805A5A;
     --textarea-placeholder-shadow: #705A5A;
     --main-card-background-solid: #0A0A1F;
     --main-text-size: 20px;
-    --accent-color: #25ffff;
-    --button-hover-bg-color: #ff3030;
-    --button-hover-shadow-color: #ff6060;
+    --accent-color: #5a09be;
+    --button-hover-bg-color: #5a09be;
+    --button-hover-shadow-color: #5a09be;
 }
 
 body {

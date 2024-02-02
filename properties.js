@@ -1,6 +1,6 @@
 class Properties {
     // text decoration
-    mainTextColor = "rgb(255, 90, 90)";
+    mainTextColor = "rgb(232, 204, 63)";
     mainTextShadowColor = "rgb(255, 0 ,0)";
     mainTextBlur = "blur(8px)";
     heroTextColor = "rgb(50,255,255)";
