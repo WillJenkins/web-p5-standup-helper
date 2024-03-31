@@ -21,8 +21,6 @@ playerForm.addEventListener("submit", (event) => {
 
 selectTheme(); // sets the theme based on the currently selected dropdown item in "theme-select"
 
-console.log(window.getComputedStyle(document.getElementById("main-text")).color);
-
 function startGame() {
     props.initTheme();
     players.loadPlayersFromText(

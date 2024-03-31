@@ -28,18 +28,6 @@ class Properties {
     // animation
     playerSpeedModifier = 0.15;
 
-    setBackground() {
-        
-    }
-
-    setAccent() {
-        this.accent = window.getComputedStyle(document.getElementById("property-getter")).color;
-    }
-
-    setMainTextColor() {
-        this.mainTextColor = window.getComputedStyle(document.getElementById("property-getter")).color;
-    }
-
     initTheme() {
         let sourceElement = document.getElementById("main-text");
         this.mainTextColor = window.getComputedStyle(sourceElement).color;
