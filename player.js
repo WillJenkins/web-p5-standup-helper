@@ -41,9 +41,9 @@ class Player {
     resetPlayer() {
         this.x = this.canvas.width / 2;
         this.y = this.canvas.height - 20; // near bottom
-        this.color = this.props.mainTextColor;
+        this.color = this.props.colorOfShame;
         this.blur = this.props.mainTextBlur;
-        this.shadowColor = this.props.mainTextShadowColor;
+        this.shadowColor = this.props.colorOfShameShadow;
         this.font = this.props.textPlayer;
         this.setRandomSpeeds();
         this.isCurrentPlayer = false;

@@ -1,3 +1,33 @@
+/*
+-- How to create a new theme --
+Step 1:
+Copy and paste all the css vars in ":root" under a new class definition
+example: .yourname-theme {...}
+
+Step 2:
+Add another <option> to the <select> element in index.html located inside the "start-header" div.
+Make sure the "value" exactly matches the class name in your css theme.
+example: if your css theme is .yourname-theme then use <option value="yourname-theme">Your Name</option>
+The inner text is what shows in the UI so make sure it's capitalized :) 
+
+IF YOU ARE THE CURRENT KANBAN WIZARD / SCRUM MASTER: make sure your newly added option is set as "selected"
+and make sure no other options are marked as selected. This will always default to your theme.
+
+Step 3: 
+Play with the colors! Have fun making changes to see what it does.
+You may notice there's a mix of hex colors, rgb, rgba. 
+All are compatible so it's your preference.
+
+If you want to reuse a color you already defined you can just reference the var.
+Example: 
+Say I want --accent-color to match --main-text-color so I can set it like this:
+--accent-color: --main-text-color;
+
+Step 4: 
+Create a pull request to get your new theme merged to develop!
+It will auto-deploy to prod once merged.
+*/
+
 :root {
     --main-text-color: #FF5A5A;
     --main-text-shadow: #FF0000;
@@ -9,6 +39,86 @@
     --accent-color: #25ffff;
     --button-hover-bg-color: #ff3030;
     --button-hover-shadow-color: #ff6060;
+    --button-text-color: --main-text-color;
+    --button-text-shadow-color: var(--main-text-shadow);
+    --canvas-border-color: #FF5A5A;
+    --canvas-border-shadow-color: #FF0000;
+    --button-border-color: #FF5A5A;
+    --button-border-shadow-color: #FF0000;
+    --hero-text-color: rgb(50,255,255);
+    --hero-tex-shadow-color: rgba(10, 155, 155, 1);
+    --color-of-shame: #FF5A5A;
+    --color-of-shame-shadow: #FF0000;
+}
+
+.will-theme {
+    --main-text-color: #FF5A5A;
+    --main-text-shadow: #FF0000;
+    --background-color-rgba: rgba(10, 10, 36, 1);
+    --textarea-placeholder: #805A5A;
+    --textarea-placeholder-shadow: #705A5A;
+    --main-card-background-solid: #0A0A1F;
+    --main-text-size: 20px;
+    --accent-color: #25ffff;
+    --button-hover-bg-color: #ff3030;
+    --button-hover-shadow-color: #ff6060;
+    --button-text-color: --main-text-color;
+    --button-text-shadow-color: var(--main-text-shadow);
+    --canvas-border-color: #FF5A5A;
+    --canvas-border-shadow-color: #FF0000;
+    --button-border-color: #FF5A5A;
+    --button-border-shadow-color: #FF0000;
+    --hero-text-color: rgb(50,255,255);
+    --hero-tex-shadow-color: rgba(10, 155, 155, 1);
+    --color-of-shame: #FF5A5A;
+    --color-of-shame-shadow: #FF0000;
+}
+
+.cameron-theme {
+    --main-text-color: #efc63c;
+    --main-text-shadow: #efc63c;
+    --background-color-rgba: rgba(10, 10, 36, 1);
+    --textarea-placeholder: #805A5A;
+    --textarea-placeholder-shadow: #705A5A;
+    --main-card-background-solid: #0A0A1F;
+    --main-text-size: 20px;
+    --accent-color: #5a09be;
+    --button-hover-bg-color: #5a09be;
+    --button-hover-shadow-color: #5a09be;
+    --button-text-color: var(--main-text-color);
+    --button-text-shadow-color: var(--main-text-color);
+    --button-border-color: var(--main-text-color);
+    --button-border-shadow-color: var(--main-text-shadow);
+    --canvas-border-color: #efc63c;
+    --canvas-border-shadow-color: #efc63c;
+    --hero-text-color: rgb(50,255,255);
+    --hero-tex-shadow-color: rgba(10, 155, 155, 1);
+    --color-of-shame: #FF5A5A;
+    --color-of-shame-shadow: #FF0000;
+}
+
+#main-text {
+    display: none;
+    color: var(--main-text-color);
+    background-color: var(--main-card-background-solid);
+}
+
+#canvas-border {
+    display: none;
+    color: var(--canvas-border-color);
+    background-color: var(--canvas-border-shadow-color);
+}
+
+#hero-text {
+    display: none;
+    color: var(--hero-text-color);
+    background-color: var(--hero-tex-shadow-color);
+}
+
+#color-of-shame {
+    display: none;
+    color: var(--color-of-shame);
+    background-color: var(--color-of-shame-shadow);
 }
 
 body {
@@ -24,6 +134,21 @@ body {
     font-family: Courier New;
     font-weight: bold;
     font-size: var(--main-text-size);
+}
+
+#start-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    font-size: var(--main-text-size);
+    color: var(--main-text-color);
+    background: none;
+    border: none;
+    text-shadow: var(--main-text-shadow);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #cw {
@@ -59,15 +184,15 @@ button {
     background-color: transparent;
     border-style: solid;
     border-width: 2px;
-    border-color: var(--main-text-color);
+    border-color: var(--button-border-color);
     padding: 5px 12px;
     font-family: Courier New;
     font-weight: bold;
-    color: var(--main-text-color);
-    text-shadow: 0px 0px 6px var(--main-text-shadow);
+    color: var(--button-text-color);
+    text-shadow: 0px 0px 6px var(--button-text-shadow-color);
     font-size: 1.2rem;
     background-color: var(--main-card-background-solid);
-    box-shadow: 0px 0px 16px var(--main-text-shadow);
+    box-shadow: 0px 0px 16px var(--button-border-shadow-color);
     border-radius: 3px;
     
     transition: background 250ms ease-in-out, transform 150ms ease;
@@ -94,5 +219,5 @@ label {
 
 canvas {
     display: block;
-    box-shadow: 0px 0px 20px var(--main-text-shadow);
+    box-shadow: 0px 0px 20px var(--canvas-border-shadow-color);
 }
