@@ -4,10 +4,12 @@
 class Game {
     currentPlayer;
     nextPlayer;
+    props;
 
     constructor(
         playersNames,
         finalBossesNames,
+        props,
         mainCanvas
     ) {
         this.mainCanvas = mainCanvas;
@@ -16,7 +18,7 @@ class Game {
         this.finalBossesNames = finalBossesNames;
         this.setSize();
         this.players = [];
-        this.props = new Properties();
+        this.props = props;
         this.setCanvasSize();
     };
 
@@ -147,7 +149,7 @@ class Game {
 
     drawBorder() {
         this.mainContext.beginPath();
-        this.mainContext.strokeStyle = this.props.mainTextColor;
+        this.mainContext.strokeStyle = this.props.canvasBorderColor;
         this.mainContext.lineWidth = 2;
         this.mainContext.rect(2, 2, this.sizeX - 4, this.sizeY - 4);
         this.mainContext.stroke();
@@ -155,7 +157,7 @@ class Game {
 
     drawLineOfDefense() {
         this.mainContext.beginPath();
-        this.mainContext.strokeStyle = this.props.mainTextColor;
+        this.mainContext.strokeStyle = this.props.canvasBorderColor;
         this.mainContext.lineWidth = 2;
         this.mainContext.moveTo(2, this.mainCanvas.height * 0.35);
         this.mainContext.lineTo(this.mainCanvas.width - 2, this.mainCanvas.height * 0.35);

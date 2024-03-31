@@ -1,13 +1,35 @@
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="sketch.js"></script>
-    <script src="properties.js"></script>
-    <script src="player.js"></script>
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
   </head>
-  <body>
-    <main>
+  <body  id="main-body">
+    <main >
+      <p id="test-me">This is a test file, use it as a sandbox</p>
+      <script>
+        console.log("hello atlas");
+        let color = window.getComputedStyle(document.getElementById("test-me"), null).getPropertyValue("color");
+        console.log(color);
+        function changeThing() {
+          console.log("pressed");
+          document.getElementById("main-body").classList.add("test-theme");
+        }
+        function selectedItem() {
+          document.getElementById("main-body").className = "";
+          document.getElementById("main-body").classList.add(document.getElementById("selection").value)
+          console.log(document.getElementById("selection").value);
+          
+        }
+      </script>
+      <button id="change" onclick="changeThing()">change theme</button>
+      <div >
+        <p>hello?</p>
+      </div>
+      <select id="selection" onchange="selectedItem()">
+        <option value="" selected>Will</option>
+        <option value="cameron">Cameron</option>
+        <option value="test-theme">Test Theme</option>
+      </select>
     </main>
   </body>
 </html>

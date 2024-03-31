@@ -12,15 +12,19 @@ let playerForm = document.getElementById("player-form");
 let players = new Players();
 let game;
 let resetReady = false;
+let props = new Properties();
 
 playerForm.addEventListener("submit", (event) => {
     event.preventDefault();
     startGame();
 })
 
+selectTheme(); // sets the theme based on the currently selected dropdown item in "theme-select"
 
+console.log(window.getComputedStyle(document.getElementById("main-text")).color);
 
 function startGame() {
+    props.initTheme();
     players.loadPlayersFromText(
         playersInputElement.value,
         finalBossesInputElement.value
@@ -33,6 +37,7 @@ function startGame() {
     game = new Game(
         players.getPlayers(),
         players.getFinalBosses(),
+        props,
         canvas
         );
     game.beginGame();
@@ -89,4 +94,10 @@ function showGameScreen() {
 function animate() {
     requestAnimationFrame(animate);
     game.drawFrame();
+}
+
+function selectTheme() {
+    document.getElementById("main-body").className = "";
+    document.getElementById("main-body").classList.add(document.getElementById("theme-select").value);
+    props.initTheme();
 }
