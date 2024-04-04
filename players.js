@@ -9,8 +9,12 @@ class Players {
         this.clearAllPlayers();
         console.log("trying to load player text: " + playerText);
         if (playerText) {
-            this.players = playerText.split('\n');
-            this.finalBosses = finalBossesText.split('\n');
+            this.players = playerText.split('\n').filter(function (e) {
+                return e != "";
+            });
+            this.finalBosses = finalBossesText.split('\n').filter(function (e) {
+                return e != "";
+            });
             //this.randomizePlayers();
         }
     }
