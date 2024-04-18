@@ -39,6 +39,7 @@ It will auto-deploy to prod once merged.
     --accent-color: #25ffff;
     --button-hover-bg-color: #ff3030;
     --button-hover-shadow-color: #ff6060;
+    --button-hover-text-color: --main-text-color;
     --button-text-color: --main-text-color;
     --button-text-shadow-color: var(--main-text-shadow);
     --canvas-border-color: #FF5A5A;
@@ -62,6 +63,7 @@ It will auto-deploy to prod once merged.
     --accent-color: #25ffff;
     --button-hover-bg-color: #ff3030;
     --button-hover-shadow-color: #ff6060;
+    --button-hover-text-color: --main-text-color;
     --button-text-color: --main-text-color;
     --button-text-shadow-color: var(--main-text-shadow);
     --canvas-border-color: #FF5A5A;
@@ -85,6 +87,7 @@ It will auto-deploy to prod once merged.
     --accent-color: #5a09be;
     --button-hover-bg-color: #5a09be;
     --button-hover-shadow-color: #5a09be;
+    --button-hover-text-color: var(--main-text-color);
     --button-text-color: var(--main-text-color);
     --button-text-shadow-color: var(--main-text-color);
     --button-border-color: var(--main-text-color);
@@ -93,6 +96,30 @@ It will auto-deploy to prod once merged.
     --canvas-border-shadow-color: #efc63c;
     --hero-text-color: rgb(50,255,255);
     --hero-tex-shadow-color: rgba(10, 155, 155, 1);
+    --color-of-shame: #FF5A5A;
+    --color-of-shame-shadow: #FF0000;
+}
+
+.creasman-theme {
+    --main-text-color: #ff6900;
+    --main-text-shadow: #5f259f;
+    --background-color-rgba: rgba(10, 10, 36, 1);
+    --textarea-placeholder: #fa76189c; /* main text */
+    --textarea-placeholder-shadow: #60259f7a;
+    --main-card-background-solid: #0A0A1F;
+    --main-text-size: 20px;
+    --accent-color: #5f259f;
+    --button-hover-bg-color: linear-gradient(in hsl, #5f259f 15%, #ef3340, #ff6900, #ffcd00);
+    --button-hover-shadow-color: #ffcd00;
+    --button-hover-text-color: #ffff;
+    --button-text-color: #ff6900;
+    --button-text-shadow-color: #5f259f;
+    --button-border-color: #5f259f;
+    --button-border-shadow-color: #ff6900;
+    --canvas-border-color: #ff6900;
+    --canvas-border-shadow-color: linear-gradient(#ff6900,#5f259f);
+    --hero-text-color: #ffff;
+    --hero-tex-shadow-color: #ff6900;
     --color-of-shame: #FF5A5A;
     --color-of-shame-shadow: #FF0000;
 }
@@ -191,7 +218,7 @@ button {
     color: var(--button-text-color);
     text-shadow: 0px 0px 6px var(--button-text-shadow-color);
     font-size: 1.2rem;
-    background-color: var(--main-card-background-solid);
+    background-image: var(--main-card-background-solid);
     box-shadow: 0px 0px 16px var(--button-border-shadow-color);
     border-radius: 3px;
     
@@ -199,8 +226,9 @@ button {
 }
 
 button:hover {
-    background-color: var(--button-hover-bg-color);
+    background-image: var(--button-hover-bg-color);
     box-shadow: 0px 0px 20px var(--button-hover-shadow-color);
+    color: var(--button-hover-text-color);
 }
 
 #btn-start {
