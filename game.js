@@ -126,6 +126,7 @@ class Game {
     };
 
     drawBackground() {
+        this.mainContext.beginPath();
         this.mainContext.fillStyle = this.props.globalBackgroundColor;
         this.mainContext.fillRect(0, 0, this.sizeX, this.sizeY);
     }
