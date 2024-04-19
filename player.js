@@ -84,6 +84,7 @@ class Player {
     }
 
     drawAsCurrentPlayer() {
+        context.beginPath();
         context.textAlign = "center";
         context.fillStyle = this.color;
         context.font = this.font;
@@ -91,11 +92,13 @@ class Player {
     }
 
     drawText() {
+        context.beginPath();
         context.textAlign = "center";
         context.strokeStyle = this.shadowColor;
         context.font = this.font;
         context.filter = this.blur;
         context.strokeText(this.name, this.x, this.y);
+        context.beginPath();
         context.strokeStyle = this.color;
         context.filter = "blur(0px)";
         context.strokeText(this.name, this.x, this.y);
