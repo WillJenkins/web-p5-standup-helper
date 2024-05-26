@@ -1,4 +1,5 @@
-Project still in progress. 
+### Try It Here!
+https://willjenkins.github.io/web-standup-helper/
 
 ## This is a standup helper.
 You can use it to pick random team members to give their update during a daily standup, roundtable discussion, icebreaker, whatever you want!
