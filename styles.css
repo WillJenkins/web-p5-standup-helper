@@ -124,6 +124,30 @@ It will auto-deploy to prod once merged.
     --color-of-shame-shadow: #FF0000;
 }
 
+.matrix-theme {
+    --main-text-color: #00FF41;
+    --main-text-shadow: #00FF41;
+    --background-color-rgba: rgb(0, 0, 0);
+    --textarea-placeholder: #00FF41; /* main text */
+    --textarea-placeholder-shadow: #000000;
+    --main-card-background-solid: #000000;
+    --main-text-size: 20px;
+    --accent-color: #00FF41;
+    --button-hover-bg-color: linear-gradient(in hsl, #008F11 15%, #008F11, #008F11, #008F11);
+    --button-hover-shadow-color: #008F11;
+    --button-hover-text-color: #00FF41;
+    --button-text-color: #00FF41;
+    --button-text-shadow-color: #00FF41;
+    --button-border-color: #00FF41;
+    --button-border-shadow-color: #00FF41;
+    --canvas-border-color: #00FF41;
+    --canvas-border-shadow-color: linear-gradient(#00FF41,#00FF41);
+    --hero-text-color: #00FF41;
+    --hero-tex-shadow-color: #00FF41;
+    --color-of-shame: #00FF41;
+    --color-of-shame-shadow: #00FF41;
+}
+
 #main-text {
     display: none;
     color: var(--main-text-color);
