@@ -36,10 +36,12 @@
             <p>Standup</p>
         </div>
         <canvas id="main-canvas"></canvas>
-        <button id="reset-button" onclick="resetGame()">Reset</button>
-        <button onclick="nextPlayer()">Next Player</button>
-        <button onclick="sendPlayerBack()">Send Back</button>
-        <button onclick="addParkingLot()">+PL</button>
+        <div class="game-controls">
+            <button id="reset-button" onclick="resetGame()">Reset</button>
+            <button onclick="nextPlayer()">Next Player</button>
+            <button onclick="sendPlayerBack()">Send Back</button>
+            <button onclick="addParkingLot()">+PL</button>
+        </div>
     </div>
     <div id="parking-lot">
         <label for="ta-parking-lots">Parking Lot Items</label>
