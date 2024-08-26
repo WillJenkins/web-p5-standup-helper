@@ -11,42 +11,53 @@
     <div id="hero-text"></div>
     <div id="color-of-shame"></div>
 
-    <div id="start-screen">
-        <div id="player-list-input">
-            <form id="player-form">
-                <div id="start-header">
-                    <label for="ta-players">*Players</label>
-                    <select id="theme-select" onchange="selectTheme()">
-                        <!-- ADD NEW THEMES FROM THE CSS FILE HERE -->
-                        <option value="will-theme">Will</option>
-                        <option value="cameron-theme">Cameron</option>
-                        <option value="creasman-theme">Nick C</option>
-                        <option value="matrix-theme" selected>Nick S</option>
-                    </select>
+    <div class="game-content">
+        <div id="start-screen">
+            <div id="player-list-input">
+                <form id="player-form">
+                    <div id="start-header">
+                        <label for="ta-players">*Players</label>
+                        <select id="theme-select" onchange="selectTheme()">
+                            <!-- ADD NEW THEMES FROM THE CSS FILE HERE -->
+                            <option value="will-theme">Will</option>
+                            <option value="cameron-theme">Cameron</option>
+                            <option value="creasman-theme">Nick C</option>
+                            <option value="schultz-theme" selected>Nick S</option>
+                            <option value="matrix-theme">I know Kung Fu</option>
+                        </select>
+                    </div>
+                    <textarea id="ta-players" name="ta-players" rows="10" cols="30" placeholder="Player 1\nPlayer 2\n..." form="player-form" spellcheck="false" required></textarea>
+                    <label for="ta-bosses">Final Round</label>
+                    <textarea id="ta-bosses" name="ta-bosses" rows="2" cols="30" placeholder="Manager\nDirector" form="player-form" spellcheck="false"></textarea>
+                    <button id="btn-start" type="submit">START</button>
+                </form>
+            </div>
+        </div>
+        <div id="gameplay-screen">
+            <div>
+                <p>Standup</p>
+            </div>
+            <canvas id="main-canvas"></canvas>
+            <div id="game-control-parent">
+                <div id="game-controls">
+                    <button id="reset-button" onclick="resetGame()">Reset</button>
+                    <button onclick="nextPlayer()">Next Player</button>
+                    <button onclick="sendPlayerBack()">Send Back</button>
+                    <button onclick="addParkingLot()">+PL</button>
                 </div>
-                <textarea id="ta-players" name="ta-players" rows="10" cols="30" placeholder="Player 1\nPlayer 2\n..." form="player-form" spellcheck="false" required></textarea>
-                <label for="ta-bosses">Final Round</label>
-                <textarea id="ta-bosses" name="ta-bosses" rows="2" cols="30" placeholder="Manager\nDirector" form="player-form" spellcheck="false"></textarea>
-                <button id="btn-start" type="submit">START</button>
-            </form>
+            </div>
+        </div>
+        <div id="parking-lot">
+            <label for="ta-parking-lots">Parking Lot Items</label>
+            <textarea id="ta-parking-lots" name="ta-parking-lots" rows="8" cols="30" placeholder="Player 1 - ...\nPlayer 2 - ..." spellcheck="false"></textarea>
         </div>
     </div>
-    <div id="gameplay-screen">
-        <div>
-            <p>Standup</p>
-        </div>
-        <canvas id="main-canvas"></canvas>
-        <div class="game-controls">
-            <button id="reset-button" onclick="resetGame()">Reset</button>
-            <button onclick="nextPlayer()">Next Player</button>
-            <button onclick="sendPlayerBack()">Send Back</button>
-            <button onclick="addParkingLot()">+PL</button>
-        </div>
+
+    <div id="matrix-background">
+        <canvas id="matrix-canvas"></canvas>
     </div>
-    <div id="parking-lot">
-        <label for="ta-parking-lots">Parking Lot Items</label>
-        <textarea id="ta-parking-lots" name="ta-parking-lots" rows="8" cols="30" placeholder="Player 1 - ...\nPlayer 2 - ..." spellcheck="false"></textarea>
-    </div>
+
+    <script src="matrix.js"></script>
     <script src="util.js"></script>
     <script src="properties.js"></script>
     <script src="player.js"></script>

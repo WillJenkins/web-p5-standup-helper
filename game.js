@@ -23,7 +23,7 @@ class Game {
     };
 
     setSize() {
-        this.sizeX = innerWidth * 0.9;
+        this.sizeX = innerWidth * 0.8;
         this.sizeY = innerHeight / 2;
         this.setCanvasSize();
     };

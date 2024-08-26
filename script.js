@@ -1,5 +1,7 @@
-const canvas = document.getElementById("main-canvas");
-const context = canvas.getContext("2d");
+let canvas;
+let context;
+let doAnimate = true;
+setUpContext();
 
 formatTextAreaPlaceholders();
 
@@ -8,20 +10,42 @@ let gameplayScreenElement = document.getElementById("gameplay-screen");
 let playersInputElement = document.getElementById("ta-players");
 let finalBossesInputElement = document.getElementById("ta-bosses");
 let playerForm = document.getElementById("player-form");
+let selectMenu = document.getElementById("theme-select");
+let matrixBackground = document.getElementById("matrix-background");
 
 let players = new Players();
 let game;
 let resetReady = false;
 let props = new Properties();
 
+
 playerForm.addEventListener("submit", (event) => {
     event.preventDefault();
     startGame();
 })
 
+selectMenu.addEventListener("change", function() {
+    if (selectMenu.value == 'matrix-theme') {
+        doAnimateMatrix = true;
+        startTheMatrix();
+        animateMatrix(0);
+        matrixBackground.style.display = "block";
+    } else {
+        matrixBackground.style.display = "none";
+        doAnimateMatrix = false;
+    }
+})
+
 selectTheme(); // sets the theme based on the currently selected dropdown item in "theme-select"
 
+function setUpContext() {
+    canvas = document.getElementById("main-canvas");
+    context = canvas.getContext("2d");
+    doAnimate = true;
+}
+
 function startGame() {
+    setUpContext();
     props.initTheme();
     players.loadPlayersFromText(
         playersInputElement.value,
@@ -40,6 +64,10 @@ function startGame() {
         );
     game.beginGame();
     animate();
+}
+
+function killGame() {
+    doAnimate = false;
 }
 
 function nextPlayer() {
@@ -66,11 +94,13 @@ addEventListener("resize", () => {
         game.setSize();
         game.preparePlayers();
     }
+    resizeMatrix();
 })
 
 function resetGame() {
     if (resetReady) {
         showStartScreen();
+        killGame();
     } else {
         resetReady = true;
         document.getElementById("reset-button").innerText = "Confirm";
@@ -90,8 +120,12 @@ function showGameScreen() {
 }
 
 function animate() {
-    requestAnimationFrame(animate);
+    if (!doAnimate) {
+        context = null;
+        return;
+    }
     game.drawFrame();
+    requestAnimationFrame(animate);
 }
 
 function selectTheme() {
